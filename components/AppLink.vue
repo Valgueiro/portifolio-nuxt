@@ -1,7 +1,7 @@
 <template>
   <div>
-    this is an app // change to route
-    <nuxt-link to="">
+    <nuxt-link :to="app.route">
+      {{ route }}
       <div
         class="
           p-6
@@ -32,20 +32,22 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
-
-interface User {
-  firstName: string
-  lastName: string
-}
+import App from 'AppType'
+// interface App {
+//   route: string
+//   icon: string
+//   title: string
+//   description: string
+// }
 
 export default Vue.extend({
-  name: 'YourComponent',
+  name: 'AppLink',
 
   props: {
     app: {
       type: Object,
       required: true,
-    } as PropOptions<User>,
+    } as PropOptions<App>,
   },
 
   data() {
@@ -55,9 +57,9 @@ export default Vue.extend({
   },
 
   computed: {
-    // fullName(): string {
-    //   return `${this.user.firstname} ${this.user.lastName}`
-    // },
+    route(): number {
+      return this.app.route
+    },
   },
 })
 </script>

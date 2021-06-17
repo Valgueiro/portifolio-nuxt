@@ -35,7 +35,7 @@
       <h3 class="text-4xl font-bold text-center text-blue-900">Apps</h3>
       <ul class="mt-4">
         <li v-for="(app, index) in apps" :key="index">
-          <app-link app="app"></app-link>
+          <app-link :app="app"></app-link>
         </li>
       </ul>
     </div>
@@ -44,9 +44,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import App from '@types/app'
 
 export default Vue.extend({
-  asyncData() {
+  asyncData(): { apps: Array<App> } {
     return {
       apps: [
         {
